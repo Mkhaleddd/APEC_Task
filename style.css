@@ -1,0 +1,297 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --primary:#e61927;
+  --secondary:#ed8f96;
+  --background:#fef9f9;
+  --text:#130403;
+  --accent:#f35862;
+
+}
+
+#app{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  color: var(--text);
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+header{
+  position: relative;
+}
+main{
+  padding: 2.25rem;
+}
+h1,h2{
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  
+}
+img{
+ max-width: 20%;
+ object-fit: cover;
+ align-self: center;
+}
+.hidden{
+  display: none;
+}
+button {
+  padding: 0.75em 2.25em; 
+  font-size: 16px;  
+  background-color: var(--primary); 
+  color: var(--background);
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  --shadow-color: 0deg 100% 23%;
+  --shadow-elevation-medium:
+    0.1px 0.8px 0.9px hsl(var(--shadow-color) / 0.48),
+    0.4px 2.9px 3.3px -0.8px hsl(var(--shadow-color) / 0.48),
+    1.1px 7.4px 8.4px -1.7px hsl(var(--shadow-color) / 0.48),
+    2.6px 18.2px 20.7px -2.5px hsl(var(--shadow-color) / 0.48);
+    box-shadow: var(--shadow-elevation-medium);
+  transition: background-color 0.3s; /* Smooth transition */
+    &:hover {
+        background-color: var(--accent); /* Darker background on hover */
+    }
+    &:active {
+       background-color: var(--accent);
+       
+      
+}
+
+    &:focus,&:active {
+      outline: none;
+      transform:scale(1.2) ;
+      -webkit-transform:scale(1.2) ;
+      -moz-transform:scale(1.2) ;
+      -ms-transform:scale(1.2) ;
+      -o-transform:scale(1.2) ;
+  }
+
+}
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    select,input {
+      padding: 0.75rem 1.25rem;
+      border: 2px solid var(--primary); 
+      border-radius: 5px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      background-color: var(--background);
+      color:var(--accent);
+      scrollbar-width: none;
+      overflow-y: scroll;
+      -ms-overflow-style: none; 
+      width:240px ;
+      &:focus {
+        outline: none; 
+        border-color: var(--secondary); 
+      }
+      option {
+        padding: 1em;
+        font-size: 1.25rem;
+        background-color: var(--background); 
+        color: var(--primary); 
+      }
+
+    }
+  input{
+    width: 200px;
+  }
+  
+}
+/* pagination */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.2rem;
+
+}
+
+.page-indicator {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+  cursor: pointer;
+  background-color: var(--background);
+  color: var(--primary);
+
+}
+
+.page-indicator.active {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+
+/* Toast */
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.toast {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  color:var(--background);
+  padding: 1rem 2rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  animation: slideIn 0.5s, fadeOut 0.5s 3.5s;
+  -webkit-animation: slideIn 0.5s, fadeOut 0.5s 3.5s;
+  &.success {
+    background-color: #4caf50; 
+  }
+  &.error {
+    background-color: var(--text); 
+    
+  }
+}
+
+
+ /*  ANIMATION */
+ 
+ .scale-up-center {
+	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+ @-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.heartbeat {
+  width: 10%;
+	-webkit-animation: heartbeat 3s cubic-bezier(0.895, 0.030, 0.685, 0.220) infinite both;
+	        animation: heartbeat 3s cubic-bezier(0.895, 0.030, 0.685, 0.220) infinite both;
+}
+
+
+ @-webkit-keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+            transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+            transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+            transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+            transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+@keyframes slideIn {
+  from {
+      transform: translateY(-20px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
