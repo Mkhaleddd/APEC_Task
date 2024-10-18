@@ -295,3 +295,15 @@ form{
       opacity: 0;
   }
 }
+/* media queries */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2.5rem;
+  }
+  img{
+    max-width: 40%;
+  }
+  .heartbeat{
+    width: 30%;
+  }
+}
